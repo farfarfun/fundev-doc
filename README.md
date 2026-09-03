@@ -2,20 +2,33 @@
 
 本文档定义了开发工具项目的标准结构和要求，作为后续开发其他工具的统一规范。
 
+## 使用方式
+
+本仓库只承载规范文档，不提供可安装的代码。直接克隆或在线查看即可：
+
+```bash
+git clone https://github.com/farfarfun/fundev-doc.git
+cat fundev-doc/README.md
+```
+
+新建或改造「开发工具类」项目时，对照下文的目录结构与 README 模板逐条检查是否合规；
+组织级更通用的仓库规范见 [todo-list 仓库的 SPEC.md](https://github.com/farfarfun/todo-list/blob/master/SPEC.md)。
+
 ## 项目结构要求
 
-### 1. 文档结构 (doc文件夹)
+### 1. 文档结构
 
-所有项目必须包含 `doc/` 文件夹，用于存放项目相关文档：
+`CHANGELOG.md` 放在**仓库根目录**（与 [SPEC.md](https://github.com/farfarfun/todo-list/blob/master/SPEC.md) §14.3 保持一致），其余项目文档放 `doc/` 文件夹：
 
 ```
-doc/
-├── CHANGELOG.md           # 版本变更日志（新版本在最上面）
-└── API.md                # API文档（包含所有类说明、字段说明、使用实例）
+project-name/
+├── CHANGELOG.md           # 版本变更日志（新版本在最上面），根目录
+└── doc/
+    └── API.md             # API文档（包含所有类说明、字段说明、使用实例）
 ```
 
 #### 1.1 版本变更日志
-- **CHANGELOG.md**: 遵循 [Keep a Changelog](https://keepachangelog.com/) 格式，所有版本变更记录在一个文件中，新版本变更日志放在文件最上面
+- **CHANGELOG.md**: 遵循 [Keep a Changelog](https://keepachangelog.com/) 格式，所有版本变更记录在一个文件中，新版本变更日志放在文件最上面，必须位于仓库根目录
 
 #### 1.2 API文档
 - **API.md**: 包含所有类的说明、字段说明和使用实例的完整API文档
@@ -26,6 +39,7 @@ doc/
 project-name/
 ├── README.md              # 项目说明文档
 ├── LICENSE               # 开源许可证
+├── CHANGELOG.md         # 版本变更日志
 ├── .gitignore           # Git忽略文件
 ├── requirements.txt     # Python依赖 (Python项目)
 ├── package.json         # Node.js依赖 (Node.js项目)
@@ -89,7 +103,7 @@ project-name/
 ### 测试
 
 ## 变更日志
-链接到 doc/CHANGELOG.md
+链接到 CHANGELOG.md（根目录）
 
 ## 许可证
 ## 贡献指南
@@ -106,3 +120,15 @@ project-name/
 ---
 
 **注意**: 本规范为强制性要求，所有新项目必须严格遵循此结构和规范。
+
+---
+
+## 关于 farfarfun
+
+[farfarfun](https://github.com/farfarfun) 是一个专注于实用工具库的开源组织，
+涵盖云存储、数据处理、AI、多媒体与开发工具链等方向。
+
+- 🏠 组织主页：<https://github.com/farfarfun>
+- 📧 联系：farfarfun@qq.com
+
+本项目基于 [MIT](LICENSE) 协议开源。
