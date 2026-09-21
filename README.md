@@ -41,7 +41,8 @@ project-name/
 ├── LICENSE               # 开源许可证
 ├── CHANGELOG.md         # 版本变更日志
 ├── .gitignore           # Git忽略文件
-├── requirements.txt     # Python依赖 (Python项目)
+├── pyproject.toml       # Python项目配置与依赖声明 (Python项目)
+├── uv.lock              # uv锁定的依赖版本 (Python项目)
 ├── package.json         # Node.js依赖 (Node.js项目)
 ├── doc/                 # 文档目录 (详见上述结构)
 ├── src/                 # 源代码目录
@@ -49,6 +50,10 @@ project-name/
 ├── scripts/             # 脚本文件目录
 └── examples/            # 使用示例目录
 ```
+
+Python项目必须使用 [uv](https://docs.astral.sh/uv/) 管理环境和依赖：在
+`pyproject.toml` 的 `[project].dependencies` 中声明带版本下限的依赖，并提交
+`uv.lock`；不得使用 `requirements.txt` 作为规范化依赖管理入口。
 
 ## 开发规范
 

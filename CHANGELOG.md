@@ -11,6 +11,7 @@
 ### 修复
 
 - 将规范文本中 `doc/CHANGELOG.md` 的示例路径改为根目录 `CHANGELOG.md`，与组织统一规范（[SPEC.md](https://github.com/farfarfun/todo-list/blob/master/SPEC.md) §14.3）保持一致。
+- 将 Python 项目模板的依赖入口改为 `pyproject.toml` 与 `uv.lock`，并补充 uv 依赖管理要求。
 
 ### 变更
 
