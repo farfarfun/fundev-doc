@@ -208,7 +208,7 @@ cython_debug/
 .cursorignore
 .cursorindexingignore
 
-# AI coding assistants: ignore local state while keeping shared definitions.
+# AI 编码助手目录：忽略本地状态，保留团队共享定义
 .claude/*
 !.claude/agents/
 !.claude/commands/
@@ -220,7 +220,7 @@ cython_debug/
 !.cursor/agents/
 !.cursor/rules/
 
-# Assistants without shared project content.
+# 其余助手目前没有共享内容，整体忽略
 .aider*
 .gemini/
 .continue/
