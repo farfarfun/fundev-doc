@@ -208,6 +208,29 @@ cython_debug/
 .cursorignore
 .cursorindexingignore
 
+# AI coding assistants: ignore local state while keeping shared definitions.
+.claude/*
+!.claude/agents/
+!.claude/commands/
+!.claude/skills/
+!.claude/settings.json
+.codex/*
+!.codex/prompts/
+.cursor/*
+!.cursor/agents/
+!.cursor/rules/
+
+# Assistants without shared project content.
+.aider*
+.gemini/
+.continue/
+.windsurf/
+.roo/
+.cline/
+.specstory/
+CLAUDE.local.md
+AGENTS.local.md
+
 # Marimo
 marimo/_static/
 marimo/_lsp/
