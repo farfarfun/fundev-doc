@@ -42,7 +42,6 @@ project-name/
 ├── CHANGELOG.md         # 版本变更日志
 ├── .gitignore           # Git忽略文件
 ├── pyproject.toml       # Python项目配置与依赖声明 (Python项目)
-├── uv.lock              # uv锁定的依赖版本 (Python项目)
 ├── package.json         # Node.js依赖 (Node.js项目)
 ├── doc/                 # 文档目录 (详见上述结构)
 ├── src/                 # 源代码目录
@@ -52,8 +51,9 @@ project-name/
 ```
 
 Python项目必须使用 [uv](https://docs.astral.sh/uv/) 管理环境和依赖：在
-`pyproject.toml` 的 `[project].dependencies` 中声明带版本下限的依赖，并提交
-`uv.lock`；不得使用 `requirements.txt` 作为规范化依赖管理入口。
+`pyproject.toml` 的 `[project].dependencies` 中声明带版本下限的依赖；不得使用
+`requirements.txt` 作为规范化依赖管理入口。`uv.lock` 是本地生成文件，**不提交**，
+仓库的 `.gitignore` 必须忽略它（见 [SPEC.md](https://github.com/farfarfun/todo-list/blob/master/SPEC.md) §5）。
 
 ## 开发规范
 
@@ -74,8 +74,17 @@ Python项目必须使用 [uv](https://docs.astral.sh/uv/) 管理环境和依赖�
 - 提供测试数据和测试环境配置
 
 ### 6. 部署要求
+
+仅适用于**仓库自己持有长期运行服务**（后端、worker、前端 dev server）的项目；
+纯库、纯 CLI、纯文档类仓库不受本节约束。
+
 - 包含环境变量配置说明
 - 提供部署脚本和说明文档
+- 生命周期操作统一由 `scripts/setup.sh` 暴露，`start` 后台运行、`run` 前台运行，语义不得混用
+- 日志、PID、lock 等运行时文件一律放 `.run/`，并在 `.gitignore` 中忽略
+- 端口定义在脚本顶部配置块，全脚本复用
+
+详细约束见 [SPEC.md](https://github.com/farfarfun/todo-list/blob/master/SPEC.md) §6 服务脚本。
 
 ## README.md 模板
 
